@@ -1,0 +1,22 @@
+{
+    "name": "code-test/module-price-graph-ql",
+    "version": "1.0.0",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-graph-ql": "*",
+        "code-test/module-price": "^1.0"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CodeTest\\PriceGraphQl\\": ""
+        }
+    }
+}

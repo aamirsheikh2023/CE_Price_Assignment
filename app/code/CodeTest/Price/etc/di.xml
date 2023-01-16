@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="CodeTest\Price\Api\Data\PriceInterface" type="CodeTest\Price\Model\Data\Price" />
+    <preference for="CodeTest\Price\Api\PriceRepositoryInterface" type="CodeTest\Price\Model\PriceRepository" />
+
+    <type name="CodeTest\Price\Logger\PriceLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">PriceLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">CodeTest\Price\Logger\Handler\PriceHandler</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="CodeTest\Price\Logger\Handler\PriceHandler" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+            <argument name="fileName" xsi:type="string"><![CDATA[/var/log/price.log]]></argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,9 @@
+type Query {
+    productPrice(product_id: Int!): ProductPrice @resolver(class: "\\CodeTest\\PriceGraphQl\\Model\\Resolver\\Price") @doc(description: "Retrieve pricing information for a product.")
+}
+
+type ProductPrice {
+    product_id: Int! @doc(description: "Magento Product Entity ID.")
+    unit_price: Float! @doc(description: "Product Unit Price.")
+    display_price: String @doc(description: "Formatted Product Unit Price.")
+}
